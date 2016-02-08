@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require('ofe').call();
 var cli = require('../lib/get-cli');
 
 /**

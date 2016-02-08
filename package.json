@@ -96,12 +96,14 @@
     "has-ansi": "~2.0.0",
     "jshint": "~2.8.0",
     "mocha": "^2.2.0",
+    "ofe": "^0.5.0",
     "regenerate": "~1.2.1",
     "rewire": "^2.3.1",
     "sinon": "^1.13.0",
     "sinon-chai": "^2.8.0",
     "unicode-7.0.0": "~0.1.5",
     "unit-coverage": "^4.0.1",
+    "v8-profiler": "^5.5.0",
     "xml2js": "~0.4.4"
   },
   "bin": {
@@ -139,6 +141,8 @@
     "changelog": "git log `git describe --tags --abbrev=0`..HEAD --pretty=format:' * %s (%an)' | grep -v 'Merge pull request'",
     "release": "node publish/prepublish && npm test && npm publish",
     "postpublish": "node publish/postpublish",
+    "test-slow:init": "rm -rf tmp-slow; mkdir -p ./tmp-slow; for i in `seq 1 1500`; do cp node_modules/html-entities/lib/html4-entities.js tmp-slow/test_$i.js; done;",
+    "test-slow:run": "node bin/jscs tmp-slow/",
     "travis": "npm run test && npm run autofix-tests && npm run coveralls"
   },
   "files": [
